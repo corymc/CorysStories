@@ -11,9 +11,9 @@ HOST = 'http://localhost:5000/'
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-@app.route('/mypage')
-@app.route('/mypage/<sort>')
-def mypage(sort=None):
+@app.route('/mystories')
+@app.route('/mystories/<sort>')
+def myStories(sort=None):
 		
 	if session.get('logged_in'):
 		user_id = session.get('user_id')
@@ -44,7 +44,7 @@ def mypage(sort=None):
 			cur = g.db.execute('select short, long from urls where uid=?',[user_id])
 
 		urls = [dict(short=HOST+"server/short/"+row[0], long=row[1]) for row in cur.fetchall()]
-		return render_template("mypage.html",name=name, urls=urls, pageName="mypage")
+		return render_template("mystories.html",name=name, urls=urls, pageName="mystories")
 	flash("You are not logged in!",'info')
 	return redirect(request.url_root)
 
@@ -138,9 +138,9 @@ def auto_addingUrl():
 def link_generator(size=6, chars=string.ascii_lowercase + string.digits + string.digits):
     return ''.join(random.choice(chars) for x in range(size))
 
-@app.route('/developers', methods=['GET'])
+@app.route('/create', methods=['GET'])
 def showDevelopers():
-    return render_template("developers.html", pageName="developers")
+    return render_template("create.html", pageName="create")
 
 @app.route('/')
 def home():
@@ -164,7 +164,7 @@ def login():
 			session['logged_in'] = True
 			session['user_id'] = user[0]
 			flash('You are logged in','success')
-			return redirect(url_for('mypage'))
+			return redirect(url_for('mystories'))
 
 	return redirect(request.url_root)
 
