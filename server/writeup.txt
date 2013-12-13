@@ -1,0 +1,33 @@
+Features
+
+1. Tweet feature
+- used twitter API to get the "tweet" button
+- when a URL is shortened, put the "tweet" button on the loaded page, and used
+the twitter API to make the shortened link the default text in the tweet.
+
+2. User signup
+- Created a page where users can sign up, giving an email and password
+- used javascript to ensure passwords match
+- used javascript to disable the submit button when passwords do no match
+- Stored users' emails and passwords in our db
+- used bcrypt to improve site security and hash passwords
+
+3. User login / viewing previously shortened URLs
+- allow users to log in if their email and password matches a user in the db
+- when users use the URL shortener, we keep a list of their shortened URLs in the db
+- users can view all of their previously shortened URLs and access them again
+- user can sort the table based on short urls
+
+4. Mobile compatibility
+- the css and html elements in our application are also compatible for mobile devices
+
+5. Bootstrap
+- enhanced the apearance of our site with the bootstrap library
+
+6. Automatically generate URLs
+- if a user does not want to create a custom URL, we provide the option to let
+our application do it sutomatically
+
+##############################
+
+We switched to sqlite3 because of our data structure and structuring our data in the cleanest form.

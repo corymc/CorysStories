@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div>
+<br>
+</div>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+
+  <span style="float:right;" class="label label-primary">Logged in as: {{ name }}</span>
+  
+  <div class="panel-heading">Previously shortened URLs</div>
+
+  <!-- Table -->
+  <table class="table">
+    <tr>
+    	<th><a href="/mypage/short">Short URL</a></th>
+    	<th><a href="/mypage/long">Long URL</a></th>
+    </tr>
+    {% for url in urls %}
+      <tr>
+        <td><a target="_blank" href="{{ url.short }}">{{ url.short }}</a></td>
+        <td><a target="_blank" href="{{ url.long }}">{{ url.long }}</a></td>
+      </tr>
+    {% else %}
+      <tr>
+        <td colspan=2>You have not shortened any URL yet</td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
+
+
+

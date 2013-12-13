@@ -1,0 +1,1 @@
+Insert into users (username, password) values ("kayvan", "d1bf6adcd5dabd48eacd8cb94f264614");

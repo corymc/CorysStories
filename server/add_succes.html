@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="starter-template">
+	<h1>Done.</h1>
+	<p class="lead">
+
+	Now you can use <a target="_blank" href={{params['short']}}>{{params['short']}}</a><br> instead of {{params['long']}}
+        <br><br>
+        Or, tweet your shortened URL!
+        <br>
+        <a href='https://twitter.com/share' data-text='I used URL Shortener ' class='twitter-share-button' data-url="{{params["short"]}}" data-lang='en'>Tweet</a>
+        <script>
+            !function(d,s,id){
+                var js,fjs=d.getElementsByTagName(s)[0];
+                if(!d.getElementById(id)){
+                    js=d.createElement(s);
+                    js.id=id;
+                    js.src='https://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js,fjs);
+                }
+            }(document,'script','twitter-wjs');
+        </script>
+	<br>
+	</p>
+</div>
+{% endblock %}

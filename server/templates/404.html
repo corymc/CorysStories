@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block body %}
+   <link rel="stylesheet" href={{ url_for('static', filename='css/404.css') }}>
+  <title>Error 404 (Not Found)!!1</title>
+  <p><b>404.</b> <ins>That’s an error.</ins>
+  <p>The requested URL <code>"{{request.path}}"</code> was not found on this server.  <ins>That’s all we know.</ins>
+{% endblock %}
